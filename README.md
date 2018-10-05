@@ -1,4 +1,4 @@
-# SharedVertexMesh.jl
+# SharedVertexMesh.jl &middot; [![Build Status](https://travis-ci.org/aaronang/SharedVertexMesh.jl.svg?branch=master)](https://travis-ci.org/aaronang/SharedVertexMesh.jl)
 
 Mesh implementation using the shared vertex representation 🔺
 
