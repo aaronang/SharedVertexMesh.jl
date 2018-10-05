@@ -39,6 +39,4 @@ function from(path::AbstractString)
     Mesh(collect(keys(vertices)), triangles)
 end
 
-export from
-
 end # module
