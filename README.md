@@ -1,6 +1,6 @@
 # SharedVertexMesh.jl &middot; [![Build Status](https://travis-ci.org/aaronang/SharedVertexMesh.jl.svg?branch=master)](https://travis-ci.org/aaronang/SharedVertexMesh.jl)
 
-Mesh implementation using the shared vertex representation 🔺
+Parse STL file format to shared vertex mesh 🔺
 
 ## Installation
 
