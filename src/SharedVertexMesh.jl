@@ -2,8 +2,17 @@ module SharedVertexMesh
 
 import DataStructures: OrderedDict
 
-Triangle = Tuple{UInt, UInt, UInt}
-Vertex = Tuple{Float32, Float32, Float32}
+struct Vertex
+    x::Float32
+    y::Float32
+    z::Float32
+end
+
+struct Triangle
+    v1::UInt
+    v2::UInt
+    v3::UInt
+end
 
 struct Mesh
     vertices::Array{Vertex, 1}
@@ -11,7 +20,7 @@ struct Mesh
 end
 
 function readvertex!(stl, vertices)
-    vertex = read(stl, Float32), read(stl, Float32), read(stl, Float32)
+    vertex = Vertex(read(stl, Float32), read(stl, Float32), read(stl, Float32))
     haskey(vertices, vertex) ? vertices[vertex] : vertices[vertex] = length(vertices) + 1
 end
 
@@ -27,7 +36,9 @@ function from(path::AbstractString)
         for _ in 1:trianglecount
             skip(stl, 12)  # skip normal vector
 
-            triangle = Triangle(map(_ -> readvertex!(stl, vertices), 1:3))
+            triangle = Triangle(readvertex!(stl, vertices),
+                                readvertex!(stl, vertices),
+                                readvertex!(stl, vertices))
             push!(triangles, triangle)
 
             skip(stl, 2)  # skip attribute byte count
